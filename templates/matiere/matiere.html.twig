@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MatiereController!{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        {% for element in matiere %}
+            <div>
+                <p>{{ element.nom }}</p>
+                <p>{{ element.coefficient }}</p>
+                <button><a href= {{path('matiere', {'id': element.id})}}>Voir Matiere</a></button>
+            </div>
+        {% endfor %}
+    </div>
+
+    {{form(ajout)}}
+    
+{% endblock %}
