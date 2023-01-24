@@ -37,20 +37,36 @@ class MatiereController extends AbstractController
     #[Route('/matiere/{id}', name: 'matiere')]
     public function matiere(Matiere $matiere= null, EntityManagerInterface $em, Request $request): Response
     {
-        $matiere = new Matiere();
+        if($matiere == null){
+            return $this->redirectToRoute('app_matiere');
+        }
+
         $form = $this->createForm(MatiereType::class, $matiere);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
             $em->persist($matiere);
             $em->flush();
+            return $this->redirectToRoute('app_matiere');
         }
 
-        $matieres = $em->getRepository(Matiere::class)->findAll();
-
         return $this->render('matiere/matiere.html.twig', [
-            'matieres' => $matieres,
+            'matiere' => $matiere,
             'ajout' => $form->createView(),
         ]);
+    }
+
+    // supprimer
+    #[Route('/matiere/supprimer/{id}', name: 'matiere_supprimer')]
+    public function matiereSupprimer(Matiere $matiere= null, EntityManagerInterface $em, Request $request): Response
+    {
+        if($matiere == null){
+            $this->addFlash('danger', 'Produit introuvable');
+        }else {
+            $em->remove($matiere);
+            $em->flush();
+        }
+        return $this->redirectToRoute('app_matiere');
+
     }
 }

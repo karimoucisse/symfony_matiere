@@ -5,15 +5,20 @@
 {% block body %}
 
     <div class="container">
+        <table border="1">
+            <tr>
+                <th>Nom</th>
+                <th>Coefficient</th>
+                <th>Action</th>
+            </tr>
         {% for element in matieres %}
-            <div>
-                <p>{{ element.nom }}</p>
-                <p>{{ element.coefficient }}</p>
-                <button><a href= {{path('matiere', {'id': element.id})}}>Voir Matiere</a></button>
-            </div>
-        {% else %}
-            <h1>Il n'y a pas de matiere</h1>
+            <tr>
+                <td>{{ element.nom }}</td>
+                <td>{{ element.coefficient }}</td>
+                <td><button><a href= {{path('matiere', {'id': element.id})}}>Voir Matiere</a></button></td>
+            </tr>
         {% endfor %}
+        </table>
     </div>
     {{form(ajout)}}
 {% endblock %}

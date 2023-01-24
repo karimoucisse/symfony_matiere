@@ -5,15 +5,11 @@
 {% block body %}
 
     <div class="container">
-        {% for element in matiere %}
             <div>
-                <p>{{ element.nom }}</p>
-                <p>{{ element.coefficient }}</p>
-                <button><a href= {{path('matiere', {'id': element.id})}}>Voir Matiere</a></button>
+                <p>{{ matiere.nom }}</p>
+                <p>{{ matiere.coefficient }}</p>
+                <button><a href= "{{path('matiere_supprimer', {'id': matiere.id})}}">Supprimer</a></button>
             </div>
-        {% endfor %}
     </div>
-
     {{form(ajout)}}
-    
 {% endblock %}
