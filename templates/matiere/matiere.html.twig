@@ -8,7 +8,7 @@
             <div>
                 <p>{{ matiere.nom }}</p>
                 <p>{{ matiere.coefficient }}</p>
-                <button><a href= "{{path('matiere_supprimer', {'id': matiere.id})}}">Supprimer</a></button>
+                <button><a href= "{{path('matiere_supprimer', {'id': matiere.id})}}">{{ 'matiere.button'|trans }}</a></button>
             </div>
     </div>
     {{form(ajout)}}

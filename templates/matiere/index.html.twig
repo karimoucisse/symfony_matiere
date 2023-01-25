@@ -2,12 +2,16 @@
 
 {% block title %}Hello MatiereController!{% endblock %}
 
+{% block stylesheets %}
+    <link href="{{asset('css/note.css')}}" rel="stylesheet">
+{% endblock %}
+
 {% block body %}
 
     <div class="container">
         <table border="1">
             <tr>
-                <th>Nom</th>
+                <th>{{ 'matieres.nom'|trans }}</th>
                 <th>Coefficient</th>
                 <th>Action</th>
             </tr>
@@ -15,7 +19,7 @@
             <tr>
                 <td>{{ element.nom }}</td>
                 <td>{{ element.coefficient }}</td>
-                <td><button><a href= {{path('matiere', {'id': element.id})}}>Voir Matiere</a></button></td>
+                <td><button class="action_btn"><a href= {{path('matiere', {'id': element.id})}}>{{ 'matieres.action'|trans }}</a></button></td>
             </tr>
         {% endfor %}
         </table>

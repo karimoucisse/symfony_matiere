@@ -1,0 +1,14 @@
+matieres:
+  nom: Name
+  action: See Subject
+  
+matiere:
+  button: Delete
+  introuvable: subject not found
+  ajoutee: subject added
+
+note:
+  ajoutee: Add note
+  moyenne: Average
+  sauvegarder: Save
+  button: Ao to subject page

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello NoteController!{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{asset('css/note.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    {% if matieres %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Note</th>
+                    <th>{{ 'matieres.nom'|trans }}</th>
+                    <th>Coefficient</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for element in notes %}
+                    <tr>
+                        <td>{{ element.note }}</td>
+                        <td>{{ element.matiere.nom }}</td>
+                        <td>{{ element.matiere.coefficient }}</td>
+                        <td>{{ element.date|date('d M Y H:i:s ') }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>{{'note.moyenne'|trans}}</th>
+                    <td>{{ moyenne }}</td>
+                </tr>
+            </tfoot>
+        </table>
+        {{ form_start(form) }}
+            <div>
+                {{ form_errors(form) }}
+            </div>
+            <div class="form">
+                <div class="form_input">{{ form_row(form.note) }}</div>
+                <div class="form_input">{{ form_row(form.matiere ) }}</div>
+                <div class="button">{{ form_row(form.submit, { 'label': 'note.sauvegarder'|trans }) }}</div>
+            </div>
+        {{ form_end(form) }}
+    {% else %}
+        <button class="button"><a href="{{path('app_matiere')}}"/>{{ 'note.button'|trans }}</a></button>
+    {% endif %}
+</div>
+{% endblock %}

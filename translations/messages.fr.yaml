@@ -1,0 +1,14 @@
+matieres:
+  nom: Nom
+  action: Voir Matiere
+  
+matiere:
+  button: Supprimer
+  introuvable: matiere introuvable
+  ajoutee: matiere ajoutee
+
+note:
+  ajoutee: Note bien ajoutée
+  moyenne: Moyenne
+  sauvegarder: Sauvegarder
+  button: Aller à la page matière
