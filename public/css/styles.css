@@ -20,7 +20,7 @@ a {
     height: 70px;
     border-radius: 7px;
     position: absolute;
-    bottom: 20px;
+    top: 70px;
     left: 10px;
 }
 .alert-success{

@@ -42,7 +42,7 @@ class NoteController extends AbstractController
                 $denominateur += $note->getMatiere()->getCoefficient();
             }
 
-            if($numerateur != 0 && $denominateur !=0){
+            if($numerateur != 0 || $denominateur !=0){
                 $moyenne = round($numerateur/$denominateur, $precision = 1);
             }
         }

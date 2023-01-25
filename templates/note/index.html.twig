@@ -13,8 +13,8 @@
         <table border="1">
             <thead>
                 <tr>
-                    <th>Note</th>
                     <th>{{ 'matieres.nom'|trans }}</th>
+                    <th>Note</th>
                     <th>Coefficient</th>
                     <th>Date</th>
                 </tr>
@@ -22,8 +22,8 @@
             <tbody>
                 {% for element in notes %}
                     <tr>
-                        <td>{{ element.note }}</td>
                         <td>{{ element.matiere.nom }}</td>
+                        <td>{{ element.note }}</td>
                         <td>{{ element.matiere.coefficient }}</td>
                         <td>{{ element.date|date('d M Y H:i:s ') }}</td>
                     </tr>
